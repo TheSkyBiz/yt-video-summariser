@@ -13,7 +13,7 @@ from .auth import auth_manager
 from .video_handler import video_processor
 from .text_processor import text_processor
 from .embedding_store import embedding_store
-from .summariser import create_summarizer  # fixed import (file is summariser.py)
+from .summariser import create_summarizer
 from .db_utils import db_manager
 
 load_dotenv()
