@@ -268,19 +268,21 @@ class YouTubeSummarizerApp:
     
     def answer_question(self, question: str):
         try:
-            with st.spinner("🔍 Searching for relevant information..."):
+            with st.spinner("🔍 Analyzing video content for comprehensive answer..."):
                 vector_db = st.session_state.get('current_video_db')
                 if vector_db is None:
                     st.error("No processed video found in session.")
                     return
-                relevant_chunks = embedding_store.retrieve_similar_chunks(vector_db, question, k=3)
-                if not relevant_chunks:
+                # Enhanced retrieval: build comprehensive context
+                comprehensive_context = embedding_store.get_comprehensive_context(vector_db, question)
+                if not comprehensive_context:
                     st.warning("No relevant information found in the video.")
                     return
-                context = " ".join(relevant_chunks)
-                result = self.summarizer.answer_question(context, question)
+                context_words = len(comprehensive_context.split())
+                st.info(f"📊 Analyzing {context_words} words of relevant content...")
+                result = self.summarizer.answer_question(comprehensive_context, question)
                 if result.get('success'):
-                    st.success("💡 Answer:")
+                    st.success("💡 Comprehensive Answer:")
                     st.write(result['answer'])
                     video_id = st.session_state.get('current_video_id')
                     if video_id:
@@ -290,11 +292,8 @@ class YouTubeSummarizerApp:
                             result['answer'],
                             response_time=result.get('response_time')
                         )
-                    with st.expander("📖 Source Context"):
-                        for i, chunk in enumerate(relevant_chunks, 1):
-                            st.write(f"**Excerpt {i}:**")
-                            st.write(chunk[:300] + "...")
-                            st.divider()
+                    with st.expander("📖 Comprehensive Source Context"):
+                        st.text_area("Full Context Used", comprehensive_context, height=400)
                 else:
                     st.error("❌ Error generating answer")
         except Exception as e:
