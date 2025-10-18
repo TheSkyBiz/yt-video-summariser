@@ -7,18 +7,18 @@
 
 > Transform any YouTube video into actionable insights with AI-powered summarization and intelligent Q&A using Retrieval-Augmented Generation (RAG).
 
-## 🌟 Overview
+##  Overview
 
 YouTube Video Summarizer is a sophisticated web application that leverages cutting-edge AI technologies to extract, process, and summarize YouTube video content. Built with modern Python frameworks and Google's Gemini AI, it provides users with instant video insights through intelligent summarization and contextual question-answering capabilities.
 
-### 🎯 Key Highlights
+###  Key Highlights
 
-- **🤖 AI-Powered**: Integrates Google Gemini 1.5 Flash for state-of-the-art text summarization
-- **🔍 Smart Search**: FAISS vector database enables semantic search across video content
-- **💬 Interactive Q&A**: Ask questions about any video and get contextually accurate answers
-- **🔐 Secure Platform**: Enterprise-grade authentication with encrypted password storage
-- **📊 Rich Analytics**: Comprehensive processing metrics and text statistics
-- **📱 Modern UI**: Responsive Streamlit interface with intuitive navigation
+- ** AI-Powered**: Integrates Google Gemini 1.5 Flash for state-of-the-art text summarization
+- ** Smart Search**: FAISS vector database enables semantic search across video content
+- ** Interactive Q&A**: Ask questions about any video and get contextually accurate answers
+- ** Secure Platform**: Enterprise-grade authentication with encrypted password storage
+- ** Rich Analytics**: Comprehensive processing metrics and text statistics
+- ** Modern UI**: Responsive Streamlit interface with intuitive navigation
 
 ## 🛠 Technical Architecture
 
@@ -70,33 +70,33 @@ graph TB
 
 ```
 
-## 🚀 Features
+##  Features
 
-### 📹 Video Processing
+### Video Processing
 - **Multi-format Support**: Handles various YouTube URL formats
 - **Intelligent Extraction**: Automatic transcript detection and language processing
 - **Quality Validation**: Checks video availability and content suitability
 - **Metadata Enrichment**: Captures video title, duration, and additional information
 
-### 🧠 AI-Powered Analysis
+### AI-Powered Analysis
 - **Dual Summarization**: Both concise (2-3 sentences) and detailed summaries
 - **Context-Aware Q&A**: RAG-based question answering with source attribution
 - **Key Insight Extraction**: Identifies main topics and learning points
 - **Statistical Analysis**: Comprehensive text metrics and readability scores
 
-### 👤 User Management
+### User Management
 - **Secure Registration**: Password strength validation and secure hashing
 - **Session Management**: Persistent login sessions with timeout protection
 - **Personal History**: Complete processing history with searchable interface
 - **Data Privacy**: User-isolated data storage and processing
 
-### 🔍 Advanced Search
+### Advanced Search
 - **Semantic Search**: Vector-based similarity matching for precise results
 - **Contextual Retrieval**: Intelligent chunk selection for Q&A responses
 - **Score Ranking**: Similarity scores for result relevance assessment
 - **Multi-query Support**: Handle complex questions across video content
 
-## 📦 Installation & Setup
+## Installation & Setup
 
 ### Prerequisites
 - Python 3.8 or higher
@@ -144,7 +144,7 @@ streamlit run run.py
 
 The application will be available at `http://localhost:8501`
 
-## 🎮 Usage Guide
+## Usage Guide
 
 ### Getting Started
 1. **Account Creation**: Register with username and secure password
@@ -206,7 +206,7 @@ MAX_VIDEO_DURATION=7200
 - **Database Path**: Configure custom database location
 - **API Limits**: Set rate limiting for API calls
 
-## 📊 Performance Metrics
+## Performance Metrics
 
 ### Processing Benchmarks
 | Video Length | Processing Time | Memory Usage | API Calls |
@@ -221,7 +221,7 @@ MAX_VIDEO_DURATION=7200
 - **Recommended**: 8GB RAM, 5GB storage
 - **Network**: Stable internet for API calls and video processing
 
-## 🔒 Security Features
+## Security Features
 
 ### Data Protection
 - **Password Security**: bcrypt hashing with salt
@@ -257,7 +257,7 @@ MAX_VIDEO_DURATION=7200
 - [ ] **Mobile Application**: iOS and Android native apps
 - [ ] **Cloud Deployment**: Scalable cloud infrastructure
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions from the community! Here's how you can help:
 
@@ -284,11 +284,11 @@ git push origin feature/your-feature-name
 - Ensure backward compatibility when possible
 
 ### Areas for Contribution
-- 🐛 Bug fixes and performance improvements
-- 📚 Documentation enhancements
-- 🧪 Unit test coverage expansion
-- 🎨 UI/UX improvements
-- 🔧 New feature development
+- Bug fixes and performance improvements
+- Documentation enhancements
+- Unit test coverage expansion
+- UI/UX improvements
+- New feature development
 
 ## 📄 License & Legal
 
@@ -305,8 +305,8 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 **Aakash Biswas** - Full Stack Developer & AI Enthusiast
 
 - 🌐 **Portfolio**: [github.com/TheSkyBiz](https://github.com/TheSkyBiz)
-- 💼 **LinkedIn**: Connect for professional opportunities
-- 📧 **Email**: Available for collaboration and questions
+- 💼 **LinkedIn**: [Connect for professional opportunities](www.linkedin.com/in/theskybiz141)
+- 📧 **Email**: [Available for collaboration and questions](aakashjsrindia@gmail.com)
 
 ### Technical Skills Demonstrated
 - **Backend Development**: Python, SQLite, API Integration
@@ -315,7 +315,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 - **DevOps**: Environment Management, Documentation
 - **Security**: Authentication, Data Protection, Input Validation
 
-## 🙋‍♂️ Support & FAQ
+## Support & FAQ
 
 ### Common Issues
 
@@ -332,25 +332,14 @@ A: Consider processing shorter videos or upgrading system RAM for better perform
 A: Delete the `app.db` file to reset the database (will lose user data).
 
 ### Getting Help
-- 📖 Check the documentation in this README
-- 🐛 Report bugs via GitHub Issues
-- 💬 Join discussions in GitHub Discussions
-- 📧 Contact the developer for urgent issues
-
-## 🎉 Acknowledgments
-
-Special thanks to:
-- **Google AI Team** for the powerful Gemini API
-- **Streamlit Community** for the excellent web framework
-- **yt-dlp Developers** for robust video processing tools
-- **FAISS Team** for efficient vector search capabilities
-- **Open Source Community** for continuous inspiration and support
-
----
+- Check the documentation in this README
+- Report bugs via GitHub Issues
+- Join discussions in GitHub Discussions
+- Contact the developer for urgent issues
 
 <div align="center">
 
-**⭐ If this project helped you, please consider giving it a star!**
+**If this project helped you, please consider giving it a star!**
 
 [🐛 Report Bug](https://github.com/TheSkyBiz/yt-video-summariser/issues) • [✨ Request Feature](https://github.com/TheSkyBiz/yt-video-summariser/issues) • [🤝 Contribute](https://github.com/TheSkyBiz/yt-video-summariser/pulls)
 
