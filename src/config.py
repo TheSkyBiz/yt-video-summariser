@@ -23,7 +23,7 @@ INDEX_DIR = "faiss_index"
 EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
 # ------------------ Gemini API Settings ------------------
-GENAI_MODEL_NAME = "gemini-1.5-flash"
+GENAI_MODEL_NAME = "gemini-2.0-flash"
 MAX_TOKENS = 8192
 TEMPERATURE = 0.3
 
