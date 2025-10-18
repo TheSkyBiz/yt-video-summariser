@@ -37,17 +37,37 @@ YouTube Video Summarizer is a sophisticated web application that leverages cutti
 
 ```mermaid
 graph TB
-    A[User Interface<br/>Streamlit] --> B[Authentication Layer<br/>bcrypt + SQLite]
-    B --> C[Video Processor<br/>yt-dlp]
-    C --> D[Text Processor<br/>Chunking + Cleaning]
-    D --> E[Vector Store<br/>FAISS + Embeddings]
-    E --> F[AI Engine<br/>Gemini API]
-    F --> G[Database<br/>SQLite3]
-    
-    style A fill:#e1f5fe
-    style F fill:#fff3e0
-    style E fill:#f3e5f5
-    style G fill:#e8f5e8
+    A["User Interface<br/><b>Streamlit</b>"]:::ui
+    B["Authentication Layer<br/><b>bcrypt + SQLite</b>"]:::auth
+    C["Video Processor<br/><b>yt-dlp</b>"]:::video
+    D["Text Processor<br/><b>Chunking + Cleaning</b>"]:::text
+    E["Vector Store<br/><b>FAISS + Embeddings</b>"]:::vector
+    F["AI Engine<br/><b>Gemini API</b>"]:::ai
+    G["Database<br/><b>SQLite3</b>"]:::db
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+
+    classDef ui fill:#1976d2,stroke:#fff,stroke-width:2,color:#fff
+    classDef auth fill:#f44336,stroke:#fff,stroke-width:2,color:#fff
+    classDef video fill:#ffd600,stroke:#333,stroke-width:2,color:#333
+    classDef text fill:#00c853,stroke:#fff,stroke-width:2,color:#fff
+    classDef vector fill:#6a1b9a,stroke:#fff,stroke-width:2,color:#fff
+    classDef ai fill:#f57c00,stroke:#fff,stroke-width:2,color:#fff
+    classDef db fill:#263238,stroke:#ffe082,stroke-width:2,color:#ffe082
+
+    class A ui
+    class B auth
+    class C video
+    class D text
+    class E vector
+    class F ai
+    class G db
+
 ```
 
 ## 🚀 Features
