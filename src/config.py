@@ -47,7 +47,7 @@ LOG_LEVEL = "INFO"
 LOG_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 
 # ------------------ RAG Enhancement Settings ------------------
-RAG_CHUNK_RETRIEVAL = 8        # Retrieve more chunks
-RAG_MAX_CONTEXT_LENGTH = 8000  # Larger context window
+RAG_CHUNK_RETRIEVAL = 12       # Retrieve more chunks
+RAG_MAX_CONTEXT_LENGTH = 12000  # Larger context window
 RAG_OVERLAP_CHUNKS = 2         # Reserved for adjacent-chunk stitching
-RAG_MIN_SIMILARITY = 0.3       # Minimum similarity filter
+RAG_MIN_SIMILARITY = 0.5       # Minimum similarity filter
