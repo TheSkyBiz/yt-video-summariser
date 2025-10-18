@@ -23,7 +23,7 @@ INDEX_DIR = "faiss_index"
 EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
 # ------------------ Gemini API Settings ------------------
-GENAI_MODEL_NAME = "gemini-2.0-flash" #change to "gemini-1.5-pro" if needed
+GENAI_MODEL_NAME = "gemini-2.0-flash"  # change to "gemini-1.5-pro" if needed
 MAX_TOKENS = 8192
 TEMPERATURE = 0.3
 
@@ -45,3 +45,9 @@ MAX_LOGIN_ATTEMPTS = 5
 # ------------------ Logging Settings ------------------
 LOG_LEVEL = "INFO"
 LOG_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+# ------------------ RAG Enhancement Settings ------------------
+RAG_CHUNK_RETRIEVAL = 8        # Retrieve more chunks
+RAG_MAX_CONTEXT_LENGTH = 8000  # Larger context window
+RAG_OVERLAP_CHUNKS = 2         # Reserved for adjacent-chunk stitching
+RAG_MIN_SIMILARITY = 0.3       # Minimum similarity filter
