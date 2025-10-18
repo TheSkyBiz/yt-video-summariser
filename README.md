@@ -6,7 +6,7 @@ AI-powered YouTube video summarization with semantic search and enhanced Q&A (RA
 
 ---
 
-## ✨ Key Features
+## Key Features
 - **Summaries:** Short (2–3 sentences) and detailed paragraph-level summaries using Gemini.
 - **Rich Q&A (Enhanced RAG):** Multi-query retrieval, larger context window, and improved prompting for comprehensive answers.
 - **Transcript Processing:** yt-dlp for captions/metadata, cleaning, chunking, vectorization.
@@ -16,7 +16,7 @@ AI-powered YouTube video summarization with semantic search and enhanced Q&A (RA
 
 ---
 
-## 🧱 Architecture
+## Architecture
 ```
 User (Streamlit UI)
       │
@@ -41,7 +41,7 @@ SQLite DB (users, videos, summaries, qa_history)
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 - **Frontend:** Streamlit
 - **LLM:** Google Gemini 2.0 Flash (configurable)
 - **Embeddings:** Sentence-Transformers (all-MiniLM-L6-v2)
@@ -52,7 +52,7 @@ SQLite DB (users, videos, summaries, qa_history)
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 ```bash
 git clone https://github.com/TheSkyBiz/yt-video-summariser.git
 cd yt-video-summariser
@@ -63,7 +63,7 @@ streamlit run run.py
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 Edit `src/config.py` to tune behavior.
 
 ```python
@@ -89,7 +89,7 @@ GOOGLE_API_KEY=your_key_here
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 ```
 yt-video-summariser/
 ├── src/
@@ -110,7 +110,7 @@ yt-video-summariser/
 
 ---
 
-## 🧪 Usage
+## Usage
 1. **Login/Signup** to enable saving history.
 2. **Paste YouTube URL** and click “Process Video”.
 3. Review **Short** and **Detailed** summaries.
@@ -119,7 +119,7 @@ yt-video-summariser/
 
 ---
 
-## ✅ What’s Implemented (as of now)
+## What’s Implemented (as of now)
 - End-to-end pipeline: URL → transcript → chunks → FAISS → summaries → Q&A → DB.
 - Enhanced RAG: multi-query expansion, top‑k with similarity filtering, large context building, deduplication.
 - Safer yt-dlp handling with None-safe metadata defaults and demo transcript fallback.
@@ -129,14 +129,14 @@ yt-video-summariser/
 
 ---
 
-## 🔍 Known Limitations
+## Known Limitations
 - **Captions Availability:** If YouTube captions are missing/blocked, the app will fall back to a demo transcript, which reduces Q&A quality.
 - **Subtitle Parsing:** Current implementation does not fully parse and download VTT/SRT files—can be improved for more accurate transcripts.
 - **Long Videos:** Very long videos may exceed the maximum combined context window; answers are only as good as retrieved segments.
 
 ---
 
-## 🚧 Roadmap / Improvements
+## Roadmap / Improvements
 - **Reliable Caption Ingestion**
   - Download .vtt/.srt with yt-dlp and parse to plain text (timestamps → sentences).
   - Optional ASR fallback (e.g., Whisper) when captions are unavailable.
@@ -162,15 +162,15 @@ yt-video-summariser/
 
 ---
 
-## 🧯 Troubleshooting
+## Troubleshooting
 - "404 model not found": set `GENAI_MODEL_NAME` to a model you see in `genai.list_models()` (e.g., `gemini-2.0-flash` or `gemini-1.5-pro`).
 - Poor Q&A quality: make sure real captions were ingested (not the demo fallback). Increase `RAG_CHUNK_RETRIEVAL` and `RAG_MAX_CONTEXT_LENGTH`.
 - Import errors: confirm `src/__init__.py` exists and run `streamlit run run.py` from project root.
 
 ---
 
-## 📄 License
+## License
 MIT — see `LICENSE` for details.
 
-## 👤 Author
+## Author
 **Aakash Biswas** — https://github.com/TheSkyBiz
