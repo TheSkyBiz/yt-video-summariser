@@ -7,6 +7,7 @@ from datetime import datetime, timedelta
 from typing import Optional, Dict
 from .db_utils import db_manager
 from .config import SESSION_TIMEOUT, MIN_PASSWORD_LENGTH
+from typing import Optional, Dict, Tuple
 
 class AuthManager:
     def __init__(self):
@@ -52,7 +53,7 @@ class AuthManager:
         else:
             return False, "Invalid username or password"
     
-    def register_user(self, username: str, password: str, email: str = None) -> tuple[bool, str]:
+    def register_user(self, username: str, password: str, email: Optional[str] = None) -> Tuple[bool, str]:
         """Register new user"""
         # Validate inputs
         if len(username) < 3:

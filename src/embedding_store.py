@@ -7,6 +7,7 @@ from typing import List, Optional
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 from .config import INDEX_DIR, EMBEDDING_MODEL
+from typing import List, Optional, Tuple
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -20,7 +21,7 @@ class EmbeddingStore:
         )
         self.index_path = os.path.join(os.path.dirname(__file__), '..', INDEX_DIR)
     
-    def build_vector_store(self, chunks: List[str], video_id: str = None) -> FAISS:
+    def build_vector_store(self, chunks: List[str], video_id: Optional[str] = None) -> FAISS:
         """
         Build FAISS vector store from text chunks
         """
@@ -44,7 +45,7 @@ class EmbeddingStore:
             logger.error(f"Error building vector store: {e}")
             raise
     
-    def load_vector_store(self, video_id: str = None) -> Optional[FAISS]:
+    def load_vector_store(self, video_id: Optional[str] = None) -> Optional[FAISS]:
         """
         Load existing FAISS vector store
         """

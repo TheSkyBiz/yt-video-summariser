@@ -8,6 +8,7 @@ from datetime import datetime, timedelta
 from typing import Optional, List, Tuple, Dict
 import logging
 from .config import DB_PATH, SESSION_TIMEOUT, MAX_LOGIN_ATTEMPTS
+from typing import Optional, List, Tuple, Dict 
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -113,7 +114,7 @@ class DatabaseManager:
         """Verify password against hash"""
         return bcrypt.checkpw(password.encode('utf-8'), password_hash.encode('utf-8'))
     
-    def create_user(self, username: str, password: str, email: str = None) -> bool:
+    def create_user(self, username: str, password: str, email: Optional[str] = None) -> bool:
         """Create new user account"""
         try:
             password_hash, salt = self.hash_password(password)
@@ -184,16 +185,16 @@ class DatabaseManager:
                 logger.warning(f"Failed login attempt for user: {username}")
                 return None
     
-    def save_video(self, user_id: int, youtube_id: str, url: str, title: str, duration: int = None, language: str = 'en') -> int:
-        """Save video metadata"""
+    def save_video(self, user_id: int, youtube_id: str, url: str, title: str, duration: Optional[int] = None, language: str = 'en') -> int:
         with self.get_connection() as conn:
             cursor = conn.cursor()
             cursor.execute(
-                "INSERT INTO videos (user_id, youtube_id, url, title, duration, language, processed_at) VALUES (?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)",
-                (user_id, youtube_id, url, title, duration, language)
+            "INSERT INTO videos (user_id, youtube_id, url, title, duration, language, processed_at) VALUES (?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)",
+            (user_id, youtube_id, url, title, duration, language)
             )
             conn.commit()
-            return cursor.lastrowid
+            last_id = cursor.lastrowid
+            return int(last_id) if last_id is not None else 0
     
     def save_summary(self, video_id: int, summary_type: str, content: str):
         """Save video summary"""
@@ -207,7 +208,7 @@ class DatabaseManager:
             )
             conn.commit()
     
-    def save_qa(self, video_id: int, question: str, answer: str, similarity_score: float = None, response_time: float = None):
+    def save_qa(self, video_id: int, question: str, answer: str, similarity_score: Optional[float] = None, response_time: Optional[float] = None):
         """Save Q&A interaction"""
         with self.get_connection() as conn:
             cursor = conn.cursor()

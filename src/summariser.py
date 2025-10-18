@@ -3,7 +3,7 @@ Gemini API integration for text summarization
 """
 import time
 import logging
-from typing import Dict, Optional
+from typing import Dict, Optional, List 
 import google.generativeai as genai
 from .config import GENAI_MODEL_NAME, MAX_TOKENS, TEMPERATURE
 
@@ -13,12 +13,16 @@ logger = logging.getLogger(__name__)
 class Summarizer:
     def __init__(self, api_key: str):
         genai.configure(api_key=api_key)
+        
+        # Fix the generation config
+        generation_config = {
+            'max_output_tokens': MAX_TOKENS,
+            'temperature': TEMPERATURE
+        }
+        
         self.model = genai.GenerativeModel(
             GENAI_MODEL_NAME,
-            generation_config=genai.types.GenerationConfig(
-                max_output_tokens=MAX_TOKENS,
-                temperature=TEMPERATURE
-            )
+            generation_config=generation_config  # Use dict instead of types
         )
     
     def generate_short_summary(self, transcript: str, max_sentences: int = 3) -> str:
